@@ -1,0 +1,24 @@
+{
+  "name": "sistema",
+  "version": "1.0.0",
+  "description": "Sistema de Gestão Pessoal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gerson250471/SistemaPessoal.git"
+  },
+  "author": "Gerson Bernardo da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gerson250471/SistemaPessoal/issues"
+  },
+  "homepage": "https://github.com/gerson250471/SistemaPessoal#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.15.2",
+    "nodemon": "^3.1.10"
+  }
+}
