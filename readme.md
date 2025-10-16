@@ -26,7 +26,7 @@
 ### Ideias a ser utilizada
 
 - [x] LINGUAGEM DE PROGRAMAÇÃO JAVASCRIPT
-- [ ] TAREFAS COM BANCO DE DADOS EM MYSQL
+- [x] TAREFAS COM BANCO DE DADOS EM MYSQL
 - [ ] PROJETOS COM BANCO DE DADOS EM MYSQL
 - [ ] MOVIMENTAÇÃO FINANCEIRA COM BANCO DE DADOS EM POSTGRESQL
 - [ ] AGENDA DE ORAÇÃO COM BANCO DE DADOS EM SQL SERVER
@@ -44,13 +44,46 @@
 
 ### Desenvolvimento
 
-| DATA | DESCRIÇÃO | STATUS |
-| ---: | --------- | ------ |
-|      |           |        |
-|      |           |        |
-|      |           |        |
-|      |           |        |
-|      |           |        |
+|     DATA | DESCRIÇÃO                        | STATUS    |
+| -------: | -------------------------------- | --------- |
+| 25.10.16 | Criar Tabelas de Tarefa no MySql | Concluído |
+|          |                                  |           |
+|          |                                  |           |
+|          |                                  |           |
+|          |                                  |           |
+
+Tabela de Tarefas
+
+```MySql
+CREATE TABLE `bdgersonbernardo`.`tbtarefa` (
+  `nm_ID_Tarefa` INT NOT NULL AUTO_INCREMENT,
+  `st_Esfera_Tarefa` VARCHAR(120) NOT NULL,
+  `st_Descricao_Tarefa` VARCHAR(120) NOT NULL,
+  `dt_DtEntrada_Tarefa` DATE NOT NULL,
+  `dt_DtConclusao_Tarefa` DATE NULL,
+  `st_Status_Tarefa` VARCHAR(45) NULL,
+  `nm_PercentualAndamento` DECIMAL(2) NULL,
+  PRIMARY KEY (`nm_ID_Tarefa`));
+```
+
+Sub Tabela de Tarefas
+
+```
+CREATE TABLE `bdgersonbernardo`.`tbtarefasub` (
+  `nm_ID_TarefaSub` INT NOT NULL AUTO_INCREMENT,
+  `nm_ID_Tarefa` INT NULL,
+  `st_Descricao_TarefaSub` VARCHAR(120) NULL,
+  `dt_DtCriacao_TarefaSub` DATE NULL,
+  `dt_DtConclusao_TarefaSub` DATE NULL,
+  `st_Situacao_TarefaSub` VARCHAR(45) NULL,
+  PRIMARY KEY (`nm_ID_TarefaSub`),
+  INDEX `Fk_TarefaSub_idx` (`nm_ID_Tarefa` ASC) VISIBLE,
+  CONSTRAINT `Fk_TarefaSub`
+    FOREIGN KEY (`nm_ID_Tarefa`)
+    REFERENCES `bdgersonbernardo`.`tbtarefa` (`nm_ID_Tarefa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+```
 
 #### AUTOR
 
